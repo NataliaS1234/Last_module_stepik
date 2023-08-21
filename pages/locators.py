@@ -3,6 +3,8 @@ from selenium.webdriver.common.by import By
 
 class MainPageLocators():
     LOGIN_LINK = (By.ID, "login_link")
+    basket_button = (By.XPATH, '//*[@id="default"]/header/div[1]/div/div[2]/span/a')
+    info_message = (By.TAG_NAME, "p")
 
 
 class LoginPageLocators():
@@ -20,6 +22,8 @@ class ProductPageLocators():
 class BasePageLocators():
     login_link = (By.ID, "login_link")
     login_link_invalid = (By.CSS_SELECTOR, "#login_link_inc")
+    basket_button = (By.XPATH, '//*[@id="default"]/header/div[1]/div/div[2]/span/a')
+    info_message = (By.TAG_NAME, "p")
 
 
 

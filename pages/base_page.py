@@ -5,6 +5,7 @@ import math
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 import pytest
+import time
 from .locators import BasePageLocators
 
 
@@ -40,7 +41,7 @@ class BasePage():
         return False
 
     def go_to_the_login_page(self):
-        login_link = self.browser.find_element(*BasePageLocators.login_link_invalid)
+        login_link = self.browser.find_element(*BasePageLocators.login_link)
         login_link.click()
 
     def solve_quiz_and_get_code(self):
@@ -59,3 +60,8 @@ class BasePage():
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.login_link), "Login link is not presented"
+
+    def should_be_basket_button(self):
+        button = self.browser.find_element(*BasePageLocators.basket_button)
+        time.sleep(3)
+        button.click()

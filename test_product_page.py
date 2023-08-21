@@ -1,5 +1,9 @@
 from .pages.product_page import ProductPage
 import pytest
+from .pages.base_page import BasePage
+from .pages.basket_page import BasketPage
+#@pytest.mark.new
+#pytest -s -m "new" test_product_page.py
 
 
 #link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
@@ -49,3 +53,21 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.open_login_page()
+
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    page = BasketPage(browser, link)
+    page.open()
+    page.should_be_basket_button()
+    page.should_be_empty("Your basket is empty. Continue shopping")
+
+
+@pytest.mark.new
+def test_guest_should_not_see_empty_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    page = BasketPage(browser, link)
+    page.open()
+    page.should_not_see_empty_basket("Your basket is empty. Continue shopping")
+
+
