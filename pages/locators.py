@@ -16,3 +16,10 @@ class ProductPageLocators():
     success_message = (By.CSS_SELECTOR, ".alertinner strong")
     basket_price = (By.CSS_SELECTOR, ".alertinner p")
 
+
+class BasePageLocators():
+    login_link = (By.ID, "login_link")
+    login_link_invalid = (By.CSS_SELECTOR, "#login_link_inc")
+
+
+
